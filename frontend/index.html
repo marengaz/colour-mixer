@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Colour Mixer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="tabs">
+            <button class="tab active" data-mode="mix" id="tab-mix">Mix</button>
+            <button class="tab" data-mode="test" id="tab-test">Test Me!</button>
+        </div>
+
+        <div id="mix-mode" class="mode-panel">
+            <div class="picker" id="picker1">
+                <div class="picker-label">Colour 1</div>
+                <div class="colour-grid" id="grid1"></div>
+                <div class="amount-bar" id="amount-bar-1">
+                    <button class="amount-btn size-small" data-amount="1">A Little</button>
+                    <button class="amount-btn size-medium active" data-amount="2">Some</button>
+                    <button class="amount-btn size-large" data-amount="3">Lots</button>
+                </div>
+            </div>
+
+            <div class="plus-sign">+</div>
+
+            <div class="picker" id="picker2">
+                <div class="picker-label">Colour 2</div>
+                <div class="colour-grid" id="grid2"></div>
+                <div class="amount-bar" id="amount-bar-2">
+                    <button class="amount-btn size-small" data-amount="1">A Little</button>
+                    <button class="amount-btn size-medium active" data-amount="2">Some</button>
+                    <button class="amount-btn size-large" data-amount="3">Lots</button>
+                </div>
+            </div>
+
+            <div id="mix-result" class="hidden">
+                <div class="equals-sign">=</div>
+                <div id="result-swatch">
+                    <span id="result-name"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="test-mode" class="mode-panel hidden">
+            <div id="difficulty-pick">
+                <div class="difficulty-label">Pick a level!</div>
+                <button class="difficulty-btn easy-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn hard-btn" data-difficulty="hard">Hard</button>
+            </div>
+            <div id="quiz-area" class="hidden">
+                <div id="question-counter"></div>
+                <div id="question-text"></div>
+                <div id="options-grid"></div>
+                <div id="feedback" class="hidden"></div>
+            </div>
+            <div id="results-area" class="hidden">
+                <div id="score-display"></div>
+                <div id="results-list"></div>
+                <button id="play-again-btn">Play Again!</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

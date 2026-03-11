@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+ca-certificates.crt
+uv.lock
+Dockerfile.corp

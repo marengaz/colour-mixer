@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - speech_cache:/app/speech_cache
+
+volumes:
+  speech_cache:
