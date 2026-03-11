@@ -350,7 +350,8 @@ function updateResult() {
   nameEl.style.color = contrastColour(mixed);
 
   resultEl.classList.remove('hidden');
-  speak(`${colour1} plus ${colour2} equals ${name}`);
+  const amountLabels = { 1: 'a little', 2: 'some', 3: 'a lot of' };
+  speak(`${amountLabels[amount1]} ${colour1} plus ${amountLabels[amount2]} ${colour2} equals ${name}`);
 }
 
 // === UI: TABS ===

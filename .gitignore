@@ -5,3 +5,4 @@ __pycache__/
 ca-certificates.crt
 uv.lock
 Dockerfile.corp
+docker-compose.corp.yml
