@@ -299,7 +299,11 @@ function selectColour(pickerNum, name) {
   if (pickerNum === 1) colour1 = name;
   else colour2 = name;
 
-  speak(name);
+  // Speak colour name only if the other colour isn't set yet;
+  // updateResult will announce the full sum when both are selected.
+  if ((pickerNum === 1 && !colour2) || (pickerNum === 2 && !colour1)) {
+    speak(name);
+  }
 
   // Update selection UI
   const gridId = pickerNum === 1 ? 'grid1' : 'grid2';
@@ -314,8 +318,11 @@ function setAmount(pickerNum, value) {
   if (pickerNum === 1) amount1 = value;
   else amount2 = value;
 
-  const labels = { 1: 'a little', 2: 'some', 3: 'lots' };
-  speak(labels[value]);
+  // Only speak amount if both colours aren't set; updateResult handles the full sum.
+  if (!colour1 || !colour2) {
+    const labels = { 1: 'a little', 2: 'some', 3: 'lots' };
+    speak(labels[value]);
+  }
 
   const barId = `amount-bar-${pickerNum}`;
   document.querySelectorAll(`#${barId} .amount-btn`).forEach(btn => {
@@ -343,7 +350,7 @@ function updateResult() {
   nameEl.style.color = contrastColour(mixed);
 
   resultEl.classList.remove('hidden');
-  speak(name);
+  speak(`${colour1} plus ${colour2} equals ${name}`);
 }
 
 // === UI: TABS ===
